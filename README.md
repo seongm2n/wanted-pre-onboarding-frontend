@@ -1,1 +1,3 @@
-# wanted-pre-onboarding-frontend
+지원자의 성명
+프로젝트의 실행 방법
+데모 영상
