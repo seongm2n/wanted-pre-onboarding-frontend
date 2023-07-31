@@ -5,7 +5,7 @@ const getAxiosInstance = (contentType) => {
   const config = {
     baseURL: REACT_APP_API_URI,
     headers: {
-      'Access-Control-All-Origin': '*',
+      'Access-Control-Allow-Origin': '*',
       'Content-Type': contentType,
     },
   };
@@ -15,4 +15,4 @@ const getAxiosInstance = (contentType) => {
   return instance;
 };
 
-export const axiosJsonInstance = getAxiosInstance('application.json');
+export const axiosJsonInstance = getAxiosInstance('application/json');
