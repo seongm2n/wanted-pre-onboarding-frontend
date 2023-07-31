@@ -9,6 +9,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Todo from './pages/Todo';
 import Main from './pages/Main';
+import { ProtectedRoute } from './pages/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
       { index: true, path: '/', element: <Main /> },
       {
         path: '/todo',
-        element: <Todo />,
+        element: (
+          <ProtectedRoute>
+            <Todo />
+          </ProtectedRoute>
+        ),
       },
       { path: '/signup', element: <SignUp /> },
       { path: '/signin', element: <SignIn /> },
