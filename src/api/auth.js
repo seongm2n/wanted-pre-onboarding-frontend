@@ -7,6 +7,7 @@ export const signIn = async ({ email, password }) => {
       email: email,
       password: password,
     };
+
     const { data } = await axiosJsonInstance.post('/auth/signin', payload);
     const accessToken = data.access_token;
     localStorage.setItem('access_token', accessToken);

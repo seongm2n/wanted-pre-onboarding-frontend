@@ -2,7 +2,9 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {},
+    },
     width: {
       headerWCustom: 'rem',
     },

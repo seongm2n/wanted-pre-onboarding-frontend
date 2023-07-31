@@ -17,7 +17,10 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, path: '/', element: <Main /> },
-      { path: '/todos', element: <Todo /> },
+      {
+        path: '/todo',
+        element: <Todo />,
+      },
       { path: '/signup', element: <SignUp /> },
       { path: '/signin', element: <SignIn /> },
     ],

@@ -7,7 +7,7 @@ function SignInForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  // const { signIn } = useAuth();
+  // const { setCurrentUser } = useAuth();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -17,18 +17,14 @@ function SignInForm() {
         return;
       }
       const res = await signIn({ email, password });
-      const userData = res.data;
-      console.log(userData);
-
-      if (!userData) {
-        alert('아이디와 비밀번호가 맞는지 확인해주세요');
-        return;
-      }
+      const accessToken = res.access_token;
+      localStorage.getItem('access_token', accessToken);
       navigate(`/todo`);
     } catch (error) {
       console.error('login error', error);
     }
   };
+
   return (
     <form
       className="flex flex-col flex-1 mt-8 sm:mt-14 sm:items-center sm:text-center w-full max-w-sm"
