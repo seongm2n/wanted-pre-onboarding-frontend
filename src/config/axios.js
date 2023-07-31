@@ -7,5 +7,5 @@ export const axiosJsonInstance = axios.create({
     'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/json',
   },
-  timeout: 12000,
+  timeout: 10000,
 });
