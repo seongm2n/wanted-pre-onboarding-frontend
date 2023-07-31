@@ -10,7 +10,6 @@ function SignUpForm() {
   const [password, setPassword] = useState('');
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
-  // const [isAccessToken, setIsAccessToken] = useState(null);
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -33,6 +32,8 @@ function SignUpForm() {
     }
   };
 
+  const isButtonDisabled =
+    !emailValidator(email) || !passwordValidator(password);
   return (
     <form className="flex flex-col flex-1 mt-8 sm:mt-14 sm:items-center sm:text-center w-full max-w-sm">
       <input
@@ -44,7 +45,7 @@ function SignUpForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      {email !== '' && !isValidEmail && (
+      {email !== '' && !emailValidator(email) && (
         <span className="text-red-500">
           @포함한 유효한 이메일 주소를 입력해주세요!{' '}
         </span>
@@ -57,7 +58,7 @@ function SignUpForm() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      {password !== '' && !isValidPassword && (
+      {password !== '' && !passwordValidator(password) && (
         <span className="text-red-500">
           패스워드는 8자리 이상이여야 합니다.
         </span>
@@ -67,6 +68,7 @@ function SignUpForm() {
           data-testid="signup-button"
           className=" bg-orange-300 px-8 py-2 w-full mt-2 focus:outline-none border-b border-wgray-400 sm:text-center rounded hover:bg-orange-200"
           onClick={handleSignup}
+          disabled={isButtonDisabled}
         >
           회원가입
         </button>

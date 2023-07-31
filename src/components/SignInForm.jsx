@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signIn } from '../api/auth';
-// import { useAuth } from '../context/AuthContext';
+import { emailValidator, passwordValidator } from '../validators/authValidator';
 
 function SignInForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  // const { setCurrentUser } = useAuth();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
+
     try {
-      if (!email || !password) {
-        alert('이메일과 비밀번호를 입력해주세요!');
-        return;
-      }
       const res = await signIn({ email, password });
       const accessToken = res.access_token;
+
       localStorage.getItem('access_token', accessToken);
       navigate(`/todo`);
     } catch (error) {
@@ -25,6 +22,8 @@ function SignInForm() {
     }
   };
 
+  const isButtonDisabled =
+    !emailValidator(email) || !passwordValidator(password);
   return (
     <form
       className="flex flex-col flex-1 mt-8 sm:mt-14 sm:items-center sm:text-center w-full max-w-sm"
@@ -39,6 +38,11 @@ function SignInForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+      {email !== '' && !emailValidator(email) && (
+        <span className="text-red-500">
+          @포함한 유효한 이메일 주소를 입력해주세요!{' '}
+        </span>
+      )}
       <input
         data-testid="password-input"
         className="px-10 py-2 w-full mt-2 focus:outline-none border-b border-wgray-400 sm:text-center rounded"
@@ -47,11 +51,17 @@ function SignInForm() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      {password !== '' && !passwordValidator(password) && (
+        <span className="text-red-500">
+          패스워드는 8자리 이상이여야 합니다.
+        </span>
+      )}
       <div className="flex flex-row gap-7 flex-1 sm:mt-3 sm:items-center sm:text-center w-full max-w-sm">
         <button
           data-testid="signin-button"
           className=" bg-orange-300 px-8 py-2 w-full mt-2 focus:outline-none border-b border-wgray-400 sm:text-center rounded hover:bg-orange-200"
           type="submit"
+          disabled={isButtonDisabled}
         >
           로그인
         </button>
