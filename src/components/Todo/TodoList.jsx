@@ -30,6 +30,7 @@ function TodoList() {
     }
   };
 
+  // 할일 수정하는 함수
   const handleUpdate = async (id, updatedTodo, isCompleted) => {
     try {
       await updateTodo(id, updatedTodo, isCompleted);
@@ -43,6 +44,20 @@ function TodoList() {
       console.error('할일 업데이트 에러:', error.message);
     }
   };
+
+  // 할일 조회하는 함수
+  const fetchTodos = async (setTodos) => {
+    try {
+      const res = await getTodos('/todos');
+      setTodos(res.data);
+    } catch (error) {
+      console.log('할일 조회 에러:', error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchTodos(setTodos);
+  }, []);
 
   return (
     <section>
