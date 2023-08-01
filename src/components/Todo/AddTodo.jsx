@@ -15,7 +15,6 @@ function AddTodo({ onAdd }) {
         return;
       }
       onAdd(todo);
-      console.log('할일 추가:', todo);
       setTodo('');
     } catch (error) {
       console.error('할일 추가 에러:', error.message);
