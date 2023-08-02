@@ -9,6 +9,7 @@ function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
 
   const handleModify = () => {
     setModifyMode(true);
+    setModifyTodo(todo);
   };
 
   const handleSaveModify = () => {
