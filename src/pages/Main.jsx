@@ -5,7 +5,7 @@ import { BsFillCalendar2HeartFill, BsClipboardCheck } from 'react-icons/bs';
 function Main() {
   const navigate = useNavigate();
   return (
-    <container className="flex flex-col my-10 justify-center items-center max-w-full">
+    <div className="flex flex-col my-10 justify-center items-center max-w-full">
       <div className="flex flex-col justify-center items-center w-full">
         <span>반갑습니다.</span>
         {/* <img src="../../images/hi.gif" alt="Animated GIF" /> */}
@@ -14,7 +14,7 @@ function Main() {
           width="480"
           height="321"
           frameBorder="0"
-          class="giphy-embed"
+          className="giphy-embed"
           allowFullScreen
         ></iframe>
         <p>
@@ -36,7 +36,7 @@ function Main() {
           </button>
         </div>
       </div>
-    </container>
+    </div>
   );
 }
 export default Main;

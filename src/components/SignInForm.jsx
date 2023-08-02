@@ -36,6 +36,7 @@ function SignInForm() {
         required
         placeholder="email"
         value={email}
+        autoComplete="email"
         onChange={(e) => setEmail(e.target.value)}
       />
       {email !== '' && !emailValidator(email) && (
@@ -49,6 +50,7 @@ function SignInForm() {
         type="password"
         placeholder="password"
         value={password}
+        autoComplete="current-password"
         onChange={(e) => setPassword(e.target.value)}
       />
       {password !== '' && !passwordValidator(password) && (
