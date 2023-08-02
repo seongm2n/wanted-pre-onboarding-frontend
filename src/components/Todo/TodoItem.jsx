@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { AiOutlineEdit, AiOutlineCheckCircle } from 'react-icons/ai';
+import { AiOutlineEdit } from 'react-icons/ai';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { MdOutlineCancel } from 'react-icons/md';
+import {HiOutlineSave} from 'react-icons/hi';
 
 function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
   const [modifyTodo, setModifyTodo] = useState(todo.todo);
@@ -71,8 +72,11 @@ function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
           </div>
         </>
       ) : (
-        <form onSubmit={handleSaveModify} className="flex flex-row">
-          <label className="items-center ">
+        <form
+          onSubmit={handleSaveModify}
+          className="flex flex-row items-center "
+        >
+          <label className="items-center flex-1 mr-17">
             <input
               className="mx-2 my-4"
               type="checkbox"
@@ -83,18 +87,19 @@ function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
             <input
               data-testid="modify-input"
               type="text"
-              className="border-0 mr-3 flex-1 ml-2 text-lg relative outline-none rounded"
+              className=" text-lg px-3 flex-grow border-0 outline-none rounded w-full mr-10"
               value={modifyTodo}
               onChange={(e) => setModifyTodo(e.target.value)}
             />
           </label>
-          <div className="flex items-center">
+
+          <div className="flex justify-between items-center ml-17">
             <button
               data-testid="submit-button"
               type="submit"
               className=" text-text font-bold px-3 py-3 hover:bg-editButton hover:text-springGreen rounded-full"
             >
-              <AiOutlineCheckCircle className="font-bold text-xl flex-shrink-0" />
+              <HiOutlineSave className="font-bold text-xl flex-shrink-0" />
             </button>
             <button
               data-testid="cancel-button"
