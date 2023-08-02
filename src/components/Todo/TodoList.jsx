@@ -34,11 +34,20 @@ function TodoList() {
   const handleUpdate = async (id, updatedTodo, isCompleted) => {
     try {
       await updateTodo(id, updatedTodo, isCompleted);
-      setTodos((prevTodos) =>
-        prevTodos.map((item) =>
-          item.id === id ? { ...item, todo: updatedTodo } : item
-        )
-      );
+
+      if (isCompleted !== todos.find((item) => item.id === id)?.isCompleted) {
+        setTodos((prevTodos) =>
+          prevTodos.map((item) =>
+            item.id === id ? { ...item, todo: updatedTodo, isCompleted } : item
+          )
+        );
+      } else {
+        setTodos((prevTodos) =>
+          prevTodos.map((item) =>
+            item.id === id ? { ...item, todo: updatedTodo } : item
+          )
+        );
+      }
       console.log('할일 업데이트:', id, updatedTodo, isCompleted);
     } catch (error) {
       console.error('할일 업데이트 에러:', error.message);
