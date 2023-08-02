@@ -69,19 +69,21 @@ function TodoList() {
   }, []);
 
   return (
-    <section>
+    <section className="flex flex-col">
+      <ul className="flex flex-col bg-white min-h-0  h-[500px] overflow-y-auto w-[600px] rounded-lg shadow-md">
+        {todos.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            todo={todo.todo}
+            userId={todo.userId}
+            id={todo.id}
+            isCompleted={todo.isCompleted}
+            onDelete={handleDelete}
+            onUpdate={handleUpdate}
+          />
+        ))}
+      </ul>
       <AddTodo onAdd={addTodo} />
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo.todo}
-          userId={todo.userId}
-          id={todo.id}
-          isCompleted={todo.isCompleted}
-          onDelete={handleDelete}
-          onUpdate={handleUpdate}
-        />
-      ))}
     </section>
   );
 }

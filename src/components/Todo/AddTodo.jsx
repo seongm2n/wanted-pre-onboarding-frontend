@@ -23,20 +23,21 @@ function AddTodo({ onAdd }) {
 
   return (
     <div>
-      <form
-        className="flex flex-row justify-center align-center my-2"
-        onSubmit={handleSubmit}
-      >
+      <form className="flex w-full p-3" onSubmit={handleSubmit}>
         <input
           data-testid="new-todo-input"
-          className="rounded mr-2"
+          className="flex-auto text-lg px-4 py-2 border-0 outline-none rounded-l-lg"
           onChange={handleInputChange}
           type="text"
           value={todo}
           placeholder="할일이 뭐에요?"
         />
-        <button data-testid="new-todo-add-button" type="submit">
-          <FiPlusCircle />
+        <button
+          data-testid="new-todo-add-button"
+          type="submit"
+          className="bg-text hover:bg-hover text-white font-bold px-4 py-2 rounded-r-lg"
+        >
+          <FiPlusCircle className="font-bold text-2xl flex-shrink-0" />
         </button>
       </form>
     </div>
