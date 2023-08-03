@@ -16,7 +16,6 @@ function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
 
 	const handleSaveModify = (e) => {
 		e.preventDefault();
-		console.log('save modify todo: ', modifyTodo);
 		onUpdate(id, modifyTodo, isCompleted);
 		setModifyMode(false);
 	};
@@ -30,7 +29,6 @@ function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
 
 	const handleCheckboxChange = () => {
 		onUpdate(id, todo, !isCompleted);
-		console.log('체크박스', !isCompleted);
 	};
 
 	return (

@@ -12,7 +12,6 @@ function TodoList() {
 			const res = await createTodo(todo);
 
 			setTodos([...todos, res.data]);
-			console.log('할일 추가: ', res.data);
 		} catch (error) {
 			console.error('할일 추가 에러: ', error.message);
 		}
@@ -24,9 +23,8 @@ function TodoList() {
 			await deleteTodo(id);
 			const updatedTodos = todos.filter((item) => item.id !== id);
 			setTodos(updatedTodos);
-			console.log('남아있는 목록', updatedTodos);
 		} catch (error) {
-			console.log('할일 삭제 에러:', error.message);
+			console.error('할일 삭제 에러:', error.message);
 		}
 	};
 
@@ -48,7 +46,6 @@ function TodoList() {
 					)
 				);
 			}
-			console.log('할일 업데이트:', id, updatedTodo, isCompleted);
 		} catch (error) {
 			console.error('할일 업데이트 에러:', error.message);
 		}
@@ -60,7 +57,7 @@ function TodoList() {
 			const res = await getTodos('/todos');
 			setTodos(res.data);
 		} catch (error) {
-			console.log('할일 조회 에러:', error.message);
+			console.error('할일 조회 에러:', error.message);
 		}
 	};
 
