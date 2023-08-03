@@ -6,6 +6,7 @@ module.exports = {
 			colors: {
 				white: '#fdf5ef',
 				text: '#8c6727',
+				buttonHover:"#6b542c",
 				editButton: '#944d0a',
 				jazzberryJam: '#bf005d',
 				springGreen: '#dceccc',
