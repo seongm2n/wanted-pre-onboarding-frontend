@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { signUp } from '../api/auth';
-import { emailValidator, passwordValidator } from '../validators/authValidator';
+import { signUp } from '../../api/auth';
+import { emailValidator, passwordValidator } from '../../validators/authValidator';
 import { useNavigate } from 'react-router-dom';
 
 function SignUpForm() {

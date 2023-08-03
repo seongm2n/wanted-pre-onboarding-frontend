@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signIn } from '../api/auth';
-import { emailValidator, passwordValidator } from '../validators/authValidator';
+import { signIn } from '../../api/auth';
+import { emailValidator, passwordValidator } from '../../validators/authValidator'
 
 function SignInForm() {
   const [email, setEmail] = useState('');
