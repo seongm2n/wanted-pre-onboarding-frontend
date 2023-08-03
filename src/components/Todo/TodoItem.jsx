@@ -28,7 +28,9 @@ function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
 		setModifyTodo(originalTodo);
 	}, [originalTodo]);
 
-	const handleDelete = () => onDelete(id);
+	const handleDelete = useCallback(() => {
+		onDelete(id);
+	}, [id, onDelete]);
 
 	const handleCheckboxChange = useCallback(() => {
 		onUpdate(id, todo, !isCompleted);
