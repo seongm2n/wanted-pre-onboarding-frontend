@@ -12,31 +12,31 @@ import Main from './pages/Main';
 import { ProtectedRoute } from './pages/ProtectedRoute';
 
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    errorElement: <NotFound />,
-    children: [
-      { index: true, path: '/', element: <Main /> },
-      {
-        path: '/todo',
-        element: (
-          <ProtectedRoute>
-            <Todo />
-          </ProtectedRoute>
-        ),
-      },
-      { path: '/signup', element: <SignUp /> },
-      { path: '/signin', element: <SignIn /> },
-    ],
-  },
+	{
+		path: '/',
+		element: <App />,
+		errorElement: <NotFound />,
+		children: [
+			{ index: true, path: '/', element: <Main /> },
+			{
+				path: '/todo',
+				element: (
+					<ProtectedRoute>
+						<Todo />
+					</ProtectedRoute>
+				),
+			},
+			{ path: '/signup', element: <SignUp /> },
+			{ path: '/signin', element: <SignIn /> },
+		],
+	},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>
 );
 
 reportWebVitals();
