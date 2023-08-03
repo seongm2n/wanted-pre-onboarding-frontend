@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { MdOutlineCancel } from 'react-icons/md';
@@ -9,27 +9,30 @@ function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
 	const [modifyMode, setModifyMode] = useState(false);
 	const [originalTodo, setOriginalTodo] = useState(todo.todo);
 
-	const handleModify = () => {
+	const handleModify = useCallback(() => {
 		setModifyMode(true);
 		setModifyTodo(todo);
-	};
+	}, [todo]);
 
-	const handleSaveModify = (e) => {
-		e.preventDefault();
-		onUpdate(id, modifyTodo, isCompleted);
-		setModifyMode(false);
-	};
+	const handleSaveModify = useCallback(
+		(e) => {
+			e.preventDefault();
+			onUpdate(id, modifyTodo, isCompleted);
+			setModifyMode(false);
+		},
+		[id, modifyTodo, isCompleted, onUpdate]
+	);
 
-	const handleCancleModify = () => {
+	const handleCancleModify = useCallback(() => {
 		setModifyMode(false);
 		setModifyTodo(originalTodo);
-	};
+	}, [originalTodo]);
 
 	const handleDelete = () => onDelete(id);
 
-	const handleCheckboxChange = () => {
+	const handleCheckboxChange = useCallback(() => {
 		onUpdate(id, todo, !isCompleted);
-	};
+	}, [id, todo, isCompleted, onUpdate]);
 
 	return (
 		<li className='flex justify-between p-2 my-1 overflow-y'>
