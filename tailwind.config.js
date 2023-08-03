@@ -10,6 +10,7 @@ module.exports = {
         jazzberryJam: '#bf005d',
         springGreen: '#dceccc',
         BananaMania: '#f8e2ac',
+        plum: '#9a4f8f',
       },
       margin: {
         13: '3.5rem',
