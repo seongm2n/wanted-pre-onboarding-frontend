@@ -10,7 +10,7 @@ function Header() {
     navigate(`/`);
   };
   return (
-    <header className="top-0 sticky z-40 w-full bg-orange-300 text-white shadow dark:bg-slate-900 dark:shadow-slate-700">
+    <header className="top-0 sticky z-40 w-full bg-orange-300 text-white shadow dark:bg-slate-900 dark:shadow-slate-700 overflow-x-hidden">
       <nav className="flex items-center justify-between w-full ">
         <div className=" max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-5">
           <div className="relative h-13 flex items-center">
@@ -22,7 +22,7 @@ function Header() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-5">
-          <div className="flex flex-row gap-5 ">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-5 ">
             {!accessToken ? (
               <p
                 className="cursor-pointer hover:bg-orange-200 rounded p-1"
