@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BsClipboardCheck } from 'react-icons/bs';
 
 function Main() {
 	const navigate = useNavigate();
-	const [isResponsive, setIsResponsive] = useState(false);
-	const iframClasses = isResponsive ? 'w-full h-auto' : 'w-40 h-40';
 	return (
 		<div className='flex flex-col my-10 justify-center items-center max-w-full'>
 			<div className='flex flex-col justify-center items-center w-full'>
 				<iframe
-					src='https://giphy.com/embed/3o6ZtpxSZbQRRnwCKQ'
-					className={`giphy-embed mb-3 ${iframClasses}`}
+					src='https://giphy.com/embed/kFkDuCdGq5DJQQTL1X'
+					width='380'
+					height='380'
+					class='giphy-embed'
 					allowFullScreen
 				></iframe>
 				<p>
-					<a href='https://giphy.com/gifs/studiosoriginals-reaction-gifs-3o6ZtpxSZbQRRnwCKQ'></a>
+					<a href='https://giphy.com/gifs/hello-hi-hand-kFkDuCdGq5DJQQTL1X'></a>
 				</p>
-				<span className='my-5 text-plum text-lg font-bold'>
-					오늘 하루 어떠신가요?
-				</span>
+
 				<div className='flex flex-row items-center justify-center'>
 					<span className='text-plum font-bold text-xl'>
 						오늘의 할일을 적으러 가볼까요?
