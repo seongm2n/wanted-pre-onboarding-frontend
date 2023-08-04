@@ -7,7 +7,6 @@ import { HiOutlineSave } from 'react-icons/hi';
 function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
 	const [modifyTodo, setModifyTodo] = useState(todo.todo);
 	const [modifyMode, setModifyMode] = useState(false);
-	const [originalTodo, setOriginalTodo] = useState(todo.todo);
 
 	const handleModify = useCallback(() => {
 		setModifyMode(true);
@@ -25,8 +24,8 @@ function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
 
 	const handleCancleModify = useCallback(() => {
 		setModifyMode(false);
-		setModifyTodo(originalTodo);
-	}, [originalTodo]);
+		setModifyTodo(todo);
+	}, [todo]);
 
 	const handleDelete = useCallback(() => {
 		onDelete(id);
