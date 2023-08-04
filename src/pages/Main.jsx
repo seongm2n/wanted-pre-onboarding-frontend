@@ -11,7 +11,7 @@ function Main() {
 					src='https://giphy.com/embed/kFkDuCdGq5DJQQTL1X'
 					width='380'
 					height='380'
-					class='giphy-embed'
+					className='giphy-embed'
 					allowFullScreen
 				></iframe>
 				<p>
