@@ -1,10 +1,11 @@
 import axios from 'axios';
+import { REACT_APP_API_URI } from '../env.config';
 
 export const axiosJsonInstance = axios.create({
-	baseURL: 'https://www.pre-onboarding-selection-task.shop/',
-	headers: {
-		'Access-Control-Allow-Origin': '*',
-		'Content-Type': 'application/json',
-	},
-	timeout: 10000,
+  baseURL: REACT_APP_API_URI,
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json',
+  },
+  timeout: 10000,
 });
