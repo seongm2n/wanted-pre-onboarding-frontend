@@ -30,14 +30,14 @@ function Header() {
 									navigate(`/signin`);
 								}}
 							>
-								SIGN IN
+								LOGIN
 							</p>
 						) : (
 							<p
 								className='cursor-pointer hover:bg-orange-200 rounded p-1'
 								onClick={handleSignOut}
 							>
-								SIGN OUT
+								LOGOUT
 							</p>
 						)}
 						{!accessToken ? (
