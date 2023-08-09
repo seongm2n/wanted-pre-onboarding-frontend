@@ -3,29 +3,56 @@ import { AiOutlineEdit } from 'react-icons/ai';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { MdOutlineCancel } from 'react-icons/md';
 import { HiOutlineSave } from 'react-icons/hi';
+import { useTodoContext } from '../../context/TodoContext';
 
 function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
 	const [modifyTodo, setModifyTodo] = useState(todo.todo);
 	const [modifyMode, setModifyMode] = useState(false);
+	const {
+		currentModifyItemId,
+		setCurrentModifyItemId,
+		isModifying,
+		setIsModifying,
+	} = useTodoContext();
 
 	const handleModify = useCallback(() => {
-		setModifyMode(true);
-		setModifyTodo(todo);
-	}, [todo]);
+		if (!isModifying) {
+			setModifyMode(true);
+			setModifyTodo(todo);
+			setCurrentModifyItemId(id);
+			setIsModifying(true);
+		}
+	}, [todo, id, isModifying, setCurrentModifyItemId, setIsModifying]);
 
 	const handleSaveModify = useCallback(
 		(e) => {
 			e.preventDefault();
-			onUpdate(id, modifyTodo, isCompleted);
-			setModifyMode(false);
+			if (currentModifyItemId === id) {
+				onUpdate(id, modifyTodo, isCompleted);
+				setModifyMode(false);
+				setCurrentModifyItemId(null);
+				setIsModifying(false);
+			}
 		},
-		[id, modifyTodo, isCompleted, onUpdate]
+		[
+			id,
+			modifyTodo,
+			isCompleted,
+			onUpdate,
+			currentModifyItemId,
+			setCurrentModifyItemId,
+			setIsModifying,
+		]
 	);
 
 	const handleCancleModify = useCallback(() => {
-		setModifyMode(false);
-		setModifyTodo(todo);
-	}, [todo]);
+		if (currentModifyItemId === id) {
+			setModifyMode(false);
+			setModifyTodo(todo);
+			setCurrentModifyItemId(null);
+			setIsModifying(false);
+		}
+	}, [todo, id, currentModifyItemId, setCurrentModifyItemId, setIsModifying]);
 
 	const handleDelete = useCallback(() => {
 		onDelete(id);
