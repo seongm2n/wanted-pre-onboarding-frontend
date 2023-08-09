@@ -74,11 +74,8 @@ function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
 					</div>
 				</>
 			) : (
-				<form
-					onSubmit={handleSaveModify}
-					className='flex flex-row items-center '
-				>
-					<label className='items-center flex-1 mr-17'>
+				<>
+					<label className='items-center flex-1 '>
 						<input
 							className='mx-2 my-4'
 							type='checkbox'
@@ -89,16 +86,16 @@ function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
 						<input
 							data-testid='modify-input'
 							type='text'
-							className=' text-lg px-3 flex-grow border-0 outline-none rounded w-full mr-10'
+							className='flex-auto text-lg pr-10 pl-2 border-0 outline-none rounded w-[80%]'
 							value={modifyTodo}
 							onChange={(e) => setModifyTodo(e.target.value)}
 						/>
 					</label>
 
-					<div className='flex justify-between items-center ml-17'>
+					<div className='flex justify-between items-center'>
 						<button
 							data-testid='submit-button'
-							type='submit'
+							onClick={handleSaveModify}
 							className=' text-text font-bold px-3 py-3 hover:bg-editButton hover:text-springGreen rounded-full'
 						>
 							<HiOutlineSave className='font-bold text-xl flex-shrink-0' />
@@ -111,7 +108,7 @@ function TodoItem({ todo, userId, id, isCompleted, onDelete, onUpdate }) {
 							<MdOutlineCancel className='font-bold text-xl flex-shrink-0' />
 						</button>
 					</div>
-				</form>
+				</>
 			)}
 		</li>
 	);

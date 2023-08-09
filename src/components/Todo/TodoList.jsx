@@ -67,7 +67,7 @@ function TodoList() {
 
 	return (
 		<section className='flex flex-col'>
-			<ul className='flex flex-col bg-white min-h-0  h-[500px] overflow-y-auto w-[600px] rounded-lg shadow-md'>
+			<ul className='flex flex-col bg-white min-h-0 h-[500px] overflow-y-auto  sm:w-[400px] xl:w-[500px] lg:w-[600px] rounded-lg shadow-md'>
 				{todos.map((todo) => (
 					<TodoItem
 						key={todo.id}
