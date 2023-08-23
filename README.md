@@ -9,6 +9,7 @@ https://web-wanted-pre-onboarding-frontend-3prof2llkv1wb92.sel4.cloudtype.app/
 ---
 
 ### Main
+
 - 로컬스토리지에 토큰이 없을 경우 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 128 141" fill="none">
   <path d="M46.1191 87.8005L55.8987 97.5801L81.9776 71.5012" stroke="#292D32" stroke-width="9.77959" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M50.6177 31.0789H76.6966C89.7361 31.0789 89.7361 24.5592 89.7361 18.0395C89.7361 5 83.2163 5 76.6966 5H50.6177C44.098 5 37.5782 5 37.5782 18.0395C37.5782 31.0789 44.098 31.0789 50.6177 31.0789Z" stroke="#292D32" stroke-width="9.77959" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -21,9 +22,9 @@ https://web-wanted-pre-onboarding-frontend-3prof2llkv1wb92.sel4.cloudtype.app/
   </svg>("/todo"로 가는 경로)에 접속한다면 "/todo"경로로 리다이렉트
 
 ### Sign Up & Login
+
 - 회원가입 유효성검사에 통과하지 못한다면 회원가입 버튼 disabled
-- 회원가입 후 "/signin"경로로 리다이렉트 
-  
+- 회원가입 후 "/signin"경로로 리다이렉트
 
 - 로그인 정보가 없다면 로그인 버튼 disabled
 - 로그인(로컬 스토리지에 토큰 저장)후 "/todo"로 이동 , Header에 LOGOUT 표시
