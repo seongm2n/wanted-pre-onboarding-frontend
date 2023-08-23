@@ -9,7 +9,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Todo from './pages/Todo';
 import Main from './pages/Main';
-import { ProtectedRoute } from './pages/ProtectedRoute';
+import { ProtectedRoute } from './routes/ProtectedRoute';
 
 const router = createBrowserRouter([
 	{
