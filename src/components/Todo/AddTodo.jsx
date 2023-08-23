@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiPlusCircle } from 'react-icons/fi';
+import Input from '../Input/Input';
 
 function AddTodo({ onAdd }) {
 	const [todo, setTodo] = useState('');
@@ -27,13 +28,12 @@ function AddTodo({ onAdd }) {
 				className='flex w-full p-3'
 				onSubmit={handleSubmit}
 			>
-				<input
+				<Input
 					data-testid='new-todo-input'
-					className='flex-auto text-lg px-4 py-2 border-0 outline-none rounded-l-lg'
 					onChange={handleInputChange}
-					type='text'
 					value={todo}
 					placeholder='할일이 뭐에요?'
+					isAddInput
 				/>
 				<button
 					data-testid='new-todo-add-button'
