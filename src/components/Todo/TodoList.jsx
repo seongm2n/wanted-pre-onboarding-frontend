@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createTodo, getTodos, updateTodo, deleteTodo } from '../../api/todo';
 import AddTodo from './AddTodo';
-import TodoItem from './TodoItem';
+import TodoItem from './TodoItem/TodoItem';
 
 function TodoList() {
 	const [todos, setTodos] = useState([]);
