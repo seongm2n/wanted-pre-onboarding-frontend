@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { signUp } from '../../api/auth';
-import { emailValidator, passwordValidator } from '../../validators/authValidator';
+import {
+	emailValidator,
+	passwordValidator,
+} from '../../validators/authValidator';
 import { useNavigate } from 'react-router-dom';
+import AuthButton from '../Button/AuthButton';
 
 function SignUpForm() {
 	const navigate = useNavigate();
@@ -64,14 +68,13 @@ function SignUpForm() {
 				</span>
 			)}
 			<div className='flex flex-row gap-7 flex-1 sm:mt-3 sm:items-center sm:text-center w-full max-w-sm'>
-				<button
+				<AuthButton
 					data-testid='signup-button'
 					className=' bg-orange-300 px-8 py-2 w-full mt-2 focus:outline-none border-b border-wgray-400 sm:text-center rounded hover:bg-orange-200'
 					onClick={handleSignup}
+					text={'회원가입'}
 					disabled={isButtonDisabled}
-				>
-					회원가입
-				</button>
+				/>
 			</div>
 		</form>
 	);
