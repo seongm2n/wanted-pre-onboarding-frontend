@@ -9,8 +9,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Todo from './pages/Todo';
 import Main from './pages/Main';
-import { ProtectedRoute } from './routes/ProtectedRoute';
-import { AuthRoute } from './routes/AuthRoute';
+import { AuthGuard } from './routes/AuthGuard';
 
 const router = createBrowserRouter([
 	{
@@ -22,25 +21,25 @@ const router = createBrowserRouter([
 			{
 				path: '/todo',
 				element: (
-					<ProtectedRoute>
+					<AuthGuard>
 						<Todo />
-					</ProtectedRoute>
+					</AuthGuard>
 				),
 			},
 			{
 				path: '/signup',
 				element: (
-					<AuthRoute>
+					<AuthGuard>
 						<SignUp />
-					</AuthRoute>
+					</AuthGuard>
 				),
 			},
 			{
 				path: '/signin',
 				element: (
-					<AuthRoute>
+					<AuthGuard>
 						<SignIn />
-					</AuthRoute>
+					</AuthGuard>
 				),
 			},
 		],
