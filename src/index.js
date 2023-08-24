@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp';
 import Todo from './pages/Todo';
 import Main from './pages/Main';
 import { ProtectedRoute } from './routes/ProtectedRoute';
+import { AuthRoute } from './routes/AuthRoute';
 
 const router = createBrowserRouter([
 	{
@@ -26,8 +27,22 @@ const router = createBrowserRouter([
 					</ProtectedRoute>
 				),
 			},
-			{ path: '/signup', element: <SignUp /> },
-			{ path: '/signin', element: <SignIn /> },
+			{
+				path: '/signup',
+				element: (
+					<AuthRoute>
+						<SignUp />
+					</AuthRoute>
+				),
+			},
+			{
+				path: '/signin',
+				element: (
+					<AuthRoute>
+						<SignIn />
+					</AuthRoute>
+				),
+			},
 		],
 	},
 ]);
