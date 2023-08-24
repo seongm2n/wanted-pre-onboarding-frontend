@@ -1,7 +1,7 @@
 import React from 'react';
 
 function EditButton({
-	'data-testid': dataTestId,
+	dataTestId,
 	text,
 	onClick,
 	type = 'button',

@@ -22,19 +22,19 @@ function TodoItemEdit({
 					disabled
 				/>
 				<Input
-					data-testid='modify-input'
+					dataTestId='modify-input'
 					value={modifyTodo}
 					onChange={(e) => setModifyTodo(e.target.value)}
 				/>
 			</label>
 			<div className='flex justify-between items-center'>
 				<EditButton
-					data-testid='submit-button'
+					datatestId='submit-button'
 					text={<HiOutlineSave className='font-bold text-xl flex-shrink-0' />}
 					onClick={handleSaveModify}
 				/>
 				<EditButton
-					data-testid='cancel-button'
+					datatestId='cancel-button'
 					onClick={handleCancleModify}
 					text={<MdOutlineCancel className='font-bold text-xl flex-shrink-0' />}
 					isCancleButton

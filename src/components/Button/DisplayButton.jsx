@@ -1,7 +1,7 @@
 import React from 'react';
 
 function DisplayButton({
-	'data-testid': dataTestId,
+	dataTestId,
 	onClick,
 	type = 'button',
 	isDeleteButton = false,

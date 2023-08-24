@@ -27,12 +27,12 @@ function TodoItemDisplay({
 			</label>
 			<div className='flex items-center'>
 				<DisplayButton
-					data-testid='modify-button'
+					datatestId='modify-button'
 					text={<AiOutlineEdit className='font-bold text-xl flex-shrink-0' />}
 					onClick={handleModify}
 				/>
 				<DisplayButton
-					data-testid='delete-button'
+					datatestId='delete-button'
 					text={
 						<RiDeleteBin6Line className='font-bold text-xl flex-shrink-0' />
 					}
