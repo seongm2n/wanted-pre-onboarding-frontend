@@ -1,17 +1,7 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import React from 'react';
 import SignInForm from '../components/Auth/SignInForm';
 
 function SignIn() {
-	const navigate = useNavigate();
-	const accessToken = localStorage.getItem('access_token');
-
-	useEffect(() => {
-		if (accessToken) {
-			navigate(`/todo`);
-		}
-	}, [accessToken, navigate]);
 	return (
 		<main>
 			<div className='flex flex-col px-2 sm:px-0 py-10 items-center w-full text-dm'>
