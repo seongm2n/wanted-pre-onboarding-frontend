@@ -22,7 +22,7 @@ function SignInForm() {
 			localStorage.getItem('access_token', accessToken);
 			navigate(`/todo`);
 		} catch (error) {
-			console.error('login error', error);
+			alert('로그인 형식에 맞지 않습니다. ');
 		}
 	};
 

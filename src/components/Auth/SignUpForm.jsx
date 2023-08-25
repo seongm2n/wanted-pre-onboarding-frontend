@@ -29,7 +29,8 @@ function SignUpForm() {
 				alert('회원가입 성공', res);
 				navigate(`/signin`);
 			} catch (error) {
-				console.error('회원가입 실패:', error.message);
+				const errorMsg = error.response?.data?.message;
+				alert(errorMsg ||'회원가입 실패'  );
 			}
 		}
 	};
