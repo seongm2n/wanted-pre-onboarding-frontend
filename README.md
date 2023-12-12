@@ -4,7 +4,7 @@
 
 ## 배포 링크 및 시연영상
 
-https://web-wanted-pre-onboarding-frontend-3prof2llkv1wb92.sel4.cloudtype.app/
+https://wanted-pre-onboarding-frontend-ten-chi.vercel.app/
 
 ---
 
